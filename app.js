@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const userRoutes = require("./routes/userRoutes");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const authRoutes = require("./routes/authRoutes");
 
 dotenv.config();
 
@@ -18,6 +19,8 @@ app.use(bodyParser.json());
 
 // Define your routes
 app.use("/users", userRoutes);
+
+app.use("/", authRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
